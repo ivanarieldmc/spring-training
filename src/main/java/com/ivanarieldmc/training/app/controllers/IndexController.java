@@ -1,5 +1,8 @@
 package com.ivanarieldmc.training.app.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,10 +28,29 @@ public class IndexController {
 		Usuario usuario = new Usuario();
 		usuario.setNombre("Ariel");
 		usuario.setApellido("Sparda");
+		usuario.setEmail("ariel@sparda.com");
 		model.addAttribute("usuario",usuario);
 		model.addAttribute("h1","Hello from the controller - H1");
 		model.addAttribute("titulo","Perfil del usuario "+usuario.getNombre()+" "+usuario.getApellido());
 		return "perfil";
+	}
+	
+	@GetMapping("/listar1")
+	public String listar1(Model model) {
+		List<Usuario> usuarios = new ArrayList<>();
+		
+		usuarios.add(new Usuario("Ivan","Lopez","ialopez@correo.com"));
+		usuarios.add(new Usuario("ariel","machuca","amach@correo.com"));
+		usuarios.add(new Usuario("Vlad","Tepes","vladiii@correo.com"));
+		Usuario usuario = new Usuario();
+
+		model.addAttribute("usuario",usuario);
+		
+		
+		model.addAttribute("titulo","Lista de usuarios");
+		model.addAttribute("usuarios",usuarios);
+		
+		return "listar1";
 	}
 
 }
