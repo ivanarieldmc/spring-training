@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}"></title>
+</head>
+<body>
+	<h1 th:text="${titulo}"></h1>
+
+	<ul>
+		<li><a th:href="@{/variables/string/}+ 'Hola Ariel 1'">/variables/string/Hola Ariel 1</a>
+		<li><a th:href="@{/variables/string/}+ 'Hola Ariel 2'">/variables/string/Hola Ariel 2</a>
+		<li><a th:href="@{/variables/string/}+ 'Hola Ariel '+'/'+3">/variables/string/Hola Ariel 3</a>
+	</ul>
+</body>
+</html>
